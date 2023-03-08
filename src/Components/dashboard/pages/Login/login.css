@@ -1,0 +1,28 @@
+#login {
+    background-color: #f2f2f2;
+}
+
+#login .form-control {
+    background-color: #f7f7f7;
+}
+
+.login-box {
+    width: 400px;
+    border: 1px solid lightgray;
+    padding: 20px;
+    margin: 50px auto;
+    background-color: #f2f2f2;
+}
+
+.login-box h4 {
+    color: #333333;
+    text-align: center;
+    font-weight: 400;
+}
+
+.login-box p {
+    color: #8d8d8d;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
+}
