@@ -1,0 +1,49 @@
+#dashboard .container-fluid {
+    background-color: #DDDDDD;
+}
+
+#dashboard .col-md-3 {
+    background-color: white;
+    padding: 20px 30px;
+}
+
+#dashboard hr {
+    margin: 0;
+}
+
+.dash-logo img {
+    width: 100px;
+    height: 50px;
+}
+
+.dash-logo h2 {
+    color: #1a1e21;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+.dash-sidebar .list-group {
+    margin-top: 20px;
+}
+
+.dash-sidebar .list-group-item {
+    border: none;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.dash-sidebar .list-group-item:hover {
+    cursor: pointer;
+}
+
+#dashboard .col-md-3 {
+    height: 700px;
+}
+
+#dashboard .col-md-8 {
+    height: 700px;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 50px;
+}

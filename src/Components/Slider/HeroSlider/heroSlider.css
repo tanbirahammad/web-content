@@ -1,0 +1,49 @@
+.heroSlide-1,
+.heroSlide-2,
+.heroSlide-3,
+.heroSlide-4 {
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+}
+
+.heroSlide-1 {
+    background-image: url('../../../images/hero-slider/img-4.png');
+}
+
+.heroSlide-2 {
+    background-image: url('../../../images/hero-slider/img\ 1.png');
+}
+
+.heroSlide-3 {
+    background-image: url('../../../images/hero-slider/img\ 2.png');
+}
+
+.heroSlide-4 {
+    background-image: url('../../../images/hero-slider/img\ 3.png');
+    display: flex;
+    align-items: center;
+}
+
+.heroSlide-4 h3 {
+    padding: 20px;
+    margin-left: 50px;
+    background-color: rgba(255, 255, 255, 0.375);
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+.heroSlider .react-multi-carousel-dot-list  {
+    background-color: yellow;
+    position: inherit;
+}
+
+@media screen and (max-width: 480px) {
+    .heroSlider,
+    .heroSlide-1,
+    .heroSlide-2,
+    .heroSlide-3,
+    .heroSlide-4 {
+        height: 200px !important;
+    }
+}
