@@ -45,4 +45,5 @@
     height: 700px;
     overflow: hidden;
     overflow-y: scroll;
+    padding: 50px;
 }

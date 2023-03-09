@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import logo from '../../../images/Company-Logo_Top.png';
 import ContactForm from '../pages/contact/Contact';
+import PortfolioDash from '../pages/portfolio/Portfolio';
 import style from './home.css';
 
 const HomeDash = () => {
 
-    const [selectedNav, setSelectedNav] = useState(null);
+    const [selectedNav, setSelectedNav] = useState('Mail');
 
     const handleDashNav = (e) => {
         const eventTagName = e.target.tagName;
@@ -45,20 +46,22 @@ const HomeDash = () => {
                             </div>
                             <div className="dash-sidebar">
                                 <ul className="list-group">
-                                    <li onClick={handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-envelope"></i>  <span>Mail</span></li>
+                                    <li onClick={()=>handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-envelope"></i>  <span>Mail</span></li>
                                     <li onClick={handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-card-text"></i>  <span>Portfolio</span></li>
                                     <li onClick={handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-people"></i>  <span>Clients</span></li>
                                     <li onClick={handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-microsoft-teams"></i>  <span>Team</span></li>
                                     <li onClick={handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-images"></i>  <span>Gallery</span></li>
                                     <li onClick={handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-person-badge"></i>  <span>Partner</span></li>
                                     <li onClick={handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-newspaper"></i>  <span>Job Recruitment</span></li>
-                                    <li onClick={handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-cash-stack"></i>  <span>E-tender</span></li>
+                                    <li onClick={handleDashNav} className="list-group-item "><i className="bi bi-cash-stack"></i>  <span>E-tender</span></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div data-bs-spy="scroll" className="col-md-8">
-                        {selectedNav === 'Mail' ? <ContactForm></ContactForm> : <ContactForm></ContactForm>}
+                        {selectedNav === 'Mail' && <ContactForm />}
+                        {selectedNav === 'Portfolio' && <PortfolioDash />}
+                        {selectedNav === 'Portfolio' && <PortfolioDash />}
                     </div>
                 </div>
             </div>
