@@ -18,6 +18,8 @@ import Jobs from './Pages/Jobs/Jobs';
 import ETender from './Pages/E-Tender/ETender';
 import PortfolioDetails from './Pages/Portfolio/PortfolioDetails';
 import SocialIconBar from './Components/SocialIconBar/SocialIconBar';
+import HomeDash from './Components/dashboard/home/Home';
+import Login from './Components/dashboard/pages/Login/Login';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
       <SocialIconBar />
       <Routes>
         <Route path='/' element={<Home/>} />
+        <Route path='/admin' element={<HomeDash/>} /> 
+        <Route path='/login' element={<Login/>} /> 
         <Route path='/about' element={<About/>} />
         <Route path='/services' element={<Services/>} />
         <Route path='/portfolio' element={<Portfolio/>} />
