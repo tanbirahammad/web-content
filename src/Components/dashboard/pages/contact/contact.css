@@ -1,0 +1,13 @@
+#contact-form h5 {
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+}
+
+.mail-list {
+    border: 1px solid lightgray;
+    padding: 20px;
+}
+
+.mail-list div {
+    text-align: center;
+}
