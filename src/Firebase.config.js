@@ -1,11 +1,21 @@
 import { initializeApp } from "firebase/app";
-const firebaseConfig = {
-    apiKey:process.env.REACT_APP_API_KEY,
-    authDomain:process.env.REACT_APP_AUTH_DOMAIN ,
-    projectId:process.env.REACT_APP_PROJECT_ID ,
-    storageBucket:process.env.REACT_APP_STORAGE_BUCKET ,
-    messagingSenderId:process.env.REACT_APP_MESSAGING_SENDER_ID,
-    appId:process.env.REACT_APP_APP_ID 
+
+  const firebaseConfig = {
+
+    apiKey: "AIzaSyCMmQW-EReT9hypUUuVCdyFzY-8Q4tTsgg",
+
+    authDomain: "artistic-communication.firebaseapp.com",
+
+    databaseURL: "https://artistic-communication-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+    projectId: "artistic-communication",
+
+    storageBucket: "artistic-communication.appspot.com",
+
+    messagingSenderId: "108634737900",
+
+    appId: "1:108634737900:web:86380c050a7233a20629c9"
+
   };
 
   const app = initializeApp(firebaseConfig);
