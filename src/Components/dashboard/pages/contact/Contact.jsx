@@ -1,10 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import contactForm from './contact.css';
+import { getDatabase, ref, onValue, remove} from "firebase/database";
+import app from '../../../../Firebase.config';
 
 const ContactForm = () => {
+
+
+    const [contactInfo, setContactInfo] = useState([]);
+    const [findkey, setFindkey] = useState([]);
+
+    const db = getDatabase(app);
+    useEffect(()=> {
+        onValue(ref(db, 'contactForm/'), snapshot => {
+            const preData = snapshot.val();
+            setFindkey(preData);
+            const data = Object.values(snapshot.val());
+            setContactInfo(data)
+        })
+    }, []);
+
+    const handleDelete = (list) => {
+        const map = findkey.map(li => {return Object});
+        console.log(map);
+    }
+
     return (
-        <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos magnam, quos sapiente blanditiis debitis quaerat deleniti dolor quo ad vero cum dolore recusandae veniam a. Velit rerum blanditiis numquam dolor, esse debitis voluptas quas aspernatur quis molestias laboriosam at repudiandae voluptatum voluptatibus, beatae magni distinctio ratione eligendi repellendus quisquam? Magnam, mollitia, adipisci esse accusamus a vitae quaerat et fugiat laboriosam atque quae voluptatibus qui modi distinctio ab incidunt eveniet vero assumenda est sint, obcaecati corporis perspiciatis facere doloribus. Enim sint dolor voluptatum quae veniam nisi quisquam excepturi fuga at, molestiae voluptatibus, hic ea? Quaerat vel delectus obcaecati suscipit beatae dolore sequi ut a. Quisquam nostrum ut enim. Vitae, ea illo excepturi voluptatem beatae deserunt magni cumque magnam porro quisquam minus, eius dicta natus veritatis animi cum molestias culpa assumenda amet sed enim architecto? Earum, quia tenetur aliquam nam libero corrupti magnam inventore odit dolorem adipisci doloremque optio eveniet modi dicta vel cupiditate quaerat neque perferendis error voluptas vitae eligendi. Error deserunt amet natus tempore, eius ut sint officia expedita velit fuga doloremque, molestias quae voluptas optio blanditiis aut. Excepturi consequatur animi nulla nemo sed obcaecati culpa illo optio totam quod, eaque maxime facere fuga. Aliquid facilis ut ullam id natus, nulla illo perferendis ipsum eaque optio consequuntur esse sunt saepe, officiis dolores ab? Accusamus a esse ipsam sapiente numquam obcaecati labore, necessitatibus maxime recusandae corrupti sit, cum excepturi, veritatis vel perferendis est quibusdam sunt nostrum non incidunt hic nulla velit quasi distinctio? Et provident inventore cumque dolores! Repellendus optio est sit nesciunt provident qui exercitationem doloremque nihil omnis, placeat nisi animi odit? Totam voluptates culpa quis deleniti facilis in dignissimos quisquam quos labore quam molestias provident vero beatae, natus officia ea non temporibus ipsa mollitia possimus quod ex cumque accusantium? Quod amet eum aperiam sequi dolores natus pariatur eos reiciendis adipisci temporibus? Aspernatur voluptate, omnis nesciunt eaque eligendi praesentium ipsam, voluptatem esse sint beatae officiis iure animi saepe quod delectus quasi architecto doloremque quam minus fuga corporis distinctio! Recusandae placeat explicabo magnam delectus itaque, error cum rem, quibusdam iusto a repellat commodi similique atque earum reprehenderit. Consectetur ipsum architecto vero vel incidunt reiciendis mollitia, provident rem tempora, repellat voluptate sint modi animi ab! Distinctio, in. Dolore deserunt ullam aut sequi doloribus non itaque quibusdam eum ipsa eligendi dolor consequuntur aliquid, rem maxime accusamus labore assumenda quaerat praesentium nisi, accusantium asperiores. Nulla eaque maxime iusto, incidunt cumque commodi aliquid! Cum sint doloremque ullam? Assumenda fugiat itaque sed iste. Reiciendis hic error quis voluptas voluptatibus tempora animi in veritatis nihil, provident suscipit! Quas accusantium maxime vitae error, atque laudantium. Aperiam placeat rem quidem praesentium atque adipisci quod, non molestias voluptatibus blanditiis aliquam consequatur ducimus doloribus. Repudiandae hic repellendus molestiae quidem necessitatibus. Iure exercitationem impedit sequi. Eligendi sequi corporis molestiae libero atque ipsam, sed in, minus officiis temporibus nostrum ullam aliquid iure ab! Beatae possimus alias consequuntur impedit ab quaerat laboriosam ipsa velit eligendi, aut nesciunt magni quisquam doloremque vel exercitationem, maxime est labore accusantium sint, nihil excepturi iste temporibus magnam sit! Voluptatibus sunt eveniet, aut perferendis odit tempore optio neque impedit necessitatibus at pariatur consequatur reiciendis. Ut dolores dolore, voluptatem repudiandae similique optio odio alias laborum autem esse dolorem explicabo perspiciatis deserunt hic animi, fugit omnis nostrum molestiae officia provident? Doloremque molestias illo nesciunt hic dolores. Aut obcaecati quisquam iusto, doloremque corporis ipsam, dignissimos veritatis, magni alias temporibus fugit modi ratione eius iure aperiam perspiciatis minus necessitatibus reprehenderit! Minima sed facere fugiat obcaecati! Alias vitae temporibus vero necessitatibus eius ipsa, quos doloribus excepturi sit nulla quas itaque repudiandae ducimus inventore corporis tempora deleniti in at voluptates dicta odit! Alias quo obcaecati quidem iste excepturi voluptatibus, sapiente corrupti. Sit libero sint voluptatum vero minima mollitia repellat iure nulla reiciendis nobis quaerat, autem odio repudiandae error asperiores enim voluptates repellendus! Autem, suscipit quisquam impedit asperiores doloribus nihil quidem deleniti maxime nostrum ab ratione iusto aut at libero cum culpa corrupti facere aspernatur dicta, in voluptate rerum deserunt nesciunt aliquam. Harum eos atque ad accusantium necessitatibus quos magnam cumque sit. Harum facilis dignissimos eos itaque debitis quae est quas accusamus? Alias, quae itaque. Nemo nobis maiores excepturi. Cupiditate itaque corporis odit consectetur, quibusdam quis iste magnam, eaque voluptatibus, hic adipisci sapiente quod pariatur commodi. Minus optio voluptatum repellendus nemo eius incidunt in, eveniet velit ad enim maiores. Sit animi magni veritatis! Nulla, commodi. Facere temporibus facilis illum dolore excepturi soluta accusamus quibusdam assumenda quod dolores dicta ratione at quasi, saepe nemo. Quas iure sed optio similique mollitia animi, libero ducimus tempore distinctio doloremque quos sequi possimus delectus dolorem, sapiente repellendus magni numquam blanditiis nisi non vel repellat commodi. Amet officiis in, temporibus doloribus distinctio magni consequuntur doloremque accusamus corrupti sit aut minima, exercitationem nostrum mollitia sequi. Distinctio dolores consequatur accusamus architecto officia beatae deserunt! Alias tenetur laborum, quia qui unde cupiditate expedita quis doloribus totam earum perferendis in! Totam porro soluta quae similique aliquid voluptatibus reprehenderit earum voluptatem facilis tempora! Laborum, rerum eligendi? Reiciendis nisi officia tenetur laboriosam saepe ipsum labore vero dignissimos aperiam quam, repellendus, aliquid optio accusantium dicta. Modi adipisci repellendus, saepe ducimus beatae impedit. Animi mollitia cumque necessitatibus sunt aut, ex dolor veniam fugit, assumenda sed aliquam alias in? Distinctio totam accusamus asperiores eos quis ducimus repudiandae harum natus! Nihil commodi voluptas eum debitis inventore nemo velit earum incidunt aut laudantium! Explicabo cum ut quisquam tempora culpa architecto debitis inventore illo nemo, ducimus facere pariatur velit saepe accusamus ipsum, quos animi corporis voluptatum hic. Veritatis obcaecati quo atque, consequatur illo eum sapiente aut porro hic. Nemo, autem asperiores, explicabo iste temporibus ratione iusto corporis velit eum, reprehenderit voluptas provident soluta laboriosam laborum? Ab delectus, similique nam architecto rerum et maxime deleniti aperiam deserunt at itaque debitis nulla nihil veritatis esse magnam, assumenda inventore omnis harum quisquam incidunt illo, corrupti modi consequuntur. Consequatur impedit sit natus, blanditiis delectus vero sequi ullam quos amet voluptatem recusandae et accusamus hic repudiandae illum illo ad voluptate iusto neque culpa debitis? Consequatur vitae ut suscipit incidunt cumque magnam ullam distinctio, aliquam omnis officia. Impedit quam rerum doloremque?</p>
+        <div className='row' id='contact-form'>
+            <h5>All Mail List</h5>
+            <div className='mail-conainer'>
+                {
+                    contactInfo.map(list =>
+                    <div 
+                    key={list.uuid}
+                    className="mail-list">
+                        <div>
+                            <p>Name: {list.firstName +' ' + list.lastName}</p>
+                            <p>Email: {list.email}</p>
+                            <p>Subject: {list.subject}</p>
+                            <p>Message: {list.message}</p>
+                        </div>
+                        <div>
+                            <button onClick={()=>handleDelete(list)} className='btn btn-danger'>delete</button>
+                        </div>
+                    </div>
+                    )
+                }
+            </div>
+            
         </div>
     );
 };

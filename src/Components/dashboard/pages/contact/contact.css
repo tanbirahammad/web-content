@@ -1,0 +1,16 @@
+#contact-form h5 {
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+}
+
+.mail-list {
+    border: 1px solid lightgray;
+    margin: 20px;
+    padding: 20px;
+    color: white;
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+}

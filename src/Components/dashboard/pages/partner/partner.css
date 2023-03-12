@@ -1,0 +1,31 @@
+#partnerForm h5 {
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+}
+
+.partner-card-container {
+    margin-top: 20px;
+}
+
+.card {
+    width: 300px;
+    background-color: lightyellow;
+}
+
+.card-body div {
+    text-align: center;
+}
+
+.partnerFormDetails {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.partnerInfo {
+    margin-top: 20px;
+}
+
+.search-group {
+    width: 400px;
+    margin: 10px auto;
+}

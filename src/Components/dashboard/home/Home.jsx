@@ -37,7 +37,6 @@ const HomeDash = () => {
         }
         setSelectedNav(clickedNav);
     }
-    console.log(selectedNav);
 
     return (
         <section id='dashboard'>
@@ -52,7 +51,7 @@ const HomeDash = () => {
                             </div>
                             <div className="dash-sidebar">
                                 <ul className="list-group">
-                                    <li onClick={()=>handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-envelope"></i>  <span>Mail</span></li>
+                                    <li onClick={handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-envelope"></i>  <span>Mail</span></li>
                                     <li onClick={handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-card-text"></i>  <span>Portfolio</span></li>
                                     <li onClick={handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-people"></i>  <span>Clients</span></li>
                                     <li onClick={handleDashNav} className="list-group-item list-group-item-action"><i className="bi bi-microsoft-teams"></i>  <span>Team</span></li>
@@ -67,7 +66,6 @@ const HomeDash = () => {
                     <div data-bs-spy="scroll" className="col-md-8">
                         {selectedNav === 'Mail' && <ContactForm />}
                         {selectedNav === 'Portfolio' && <PortfolioDash />}
-                        
                         {selectedNav === 'Clients' && <Client />}
                         {selectedNav === 'Gallery' && <Gallery />}
                         {selectedNav === 'Team' && <Team />}

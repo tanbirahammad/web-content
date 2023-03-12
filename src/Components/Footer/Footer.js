@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import bottomLogo from '../../images/Company-Logo_Bottom.png';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { ContactContext } from '../Context/ContactContext';
 
 const Footer = () => {
+
+    const contextValue = useContext(ContactContext);
+    const { alert, contactFormInfo, handleContactChange, handleSubmitContact } = contextValue;
 
     const [show, setShow] = useState(false);
 
@@ -51,19 +55,50 @@ const Footer = () => {
                     <div className="col-md-6 form-container">
                         <form action="">
                             <label htmlFor="name">Name <span style={{color:'#ed1d24'}}>*</span></label><br />
-                            <input style={{width:'49%'}} type="text" name='name' placeholder='First' required />
-                            <input style={{width:'49%',marginLeft:'2%'}} type="text" name='name' placeholder='Last' required />
+                            <input
+                                style={{width:'49%'}} 
+                                type="text" 
+                                name='firstName'
+                                placeholder='First'
+                                value={contactFormInfo.firstName}
+                                onChange={handleContactChange} 
+                                required />
+                            <input 
+                                style={{width:'49%',marginLeft:'2%'}} 
+                                type="text" 
+                                name='lastName' 
+                                placeholder='Last'
+                                value={contactFormInfo.lastName}
+                                onChange={handleContactChange}
+                                required />
                             <br />
                             <label htmlFor="email">Email <span style={{color:'#ed1d24'}}>*</span></label><br />
-                            <input style={{width:'100%'}} type="email" name='email' required />
+                            <input 
+                                style={{width:'100%'}} 
+                                type="email" 
+                                name='email'
+                                value={contactFormInfo.email}
+                                onChange={handleContactChange} 
+                                required />
                             <br />
                             <label htmlFor="subject">Subject</label><br />
-                            <input style={{width:'100%'}} type="text" name='subject' />
+                            <input 
+                                style={{width:'100%'}} 
+                                type="text" 
+                                name='subject'
+                                value={contactFormInfo.subject}
+                                onChange={handleContactChange} />
                             <br />
                             <label htmlFor="message">Message</label><br />
-                            <input style={{width:'100%',height:'100px'}} type="text" name='message' />
+                            <input 
+                                style={{width:'100%',height:'100px'}} 
+                                type="text" 
+                                name='message'
+                                value={contactFormInfo.message}
+                                onChange={handleContactChange} />
                             <br />
-                            <input className='shadow-sm btn-red' type="submit" value='Submit' />
+                            {alert.success ? <p><strong style={{color:'green'}}>{alert.message}</strong></p> : <p><strong style={{color:'white'}}>{alert.error}</strong></p>}
+                            <input onClick={handleSubmitContact} className='shadow-sm btn-red' type="submit" value='Submit' />
                         </form>
                     </div>
                 </div>
@@ -79,20 +114,58 @@ const Footer = () => {
                         <Modal.Body>
                             <form>
                                 <label className='form-label' htmlFor="name">Name *</label>
-                                <input style={{border:'1px solid #454545'}} required className='form-control' type="text" name="name" />
+                                <div className='footer-contact-name'>
+                                    <input 
+                                    style={{border:'1px solid #454545'}} 
+                                    required className='form-control' 
+                                    placeholder='First' 
+                                    type="text" 
+                                    name="firstName"
+                                    value={contactFormInfo.firstName}
+                                    onChange={handleContactChange} />
+                                    <input 
+                                    style={{border:'1px solid #454545'}} 
+                                    required 
+                                    className='form-control' 
+                                    placeholder='Last' 
+                                    type="text" 
+                                    name="lastName"
+                                    value={contactFormInfo.lastName}
+                                    onChange={handleContactChange} />
+                                </div>
                                 <label style={{marginTop:'15px'}} className='form-label' htmlFor="email">Email *</label>
-                                <input style={{border:'1px solid #454545'}} required className='form-control' type="email" name="email" />
+                                <input 
+                                style={{border:'1px solid #454545'}} 
+                                required 
+                                className='form-control' 
+                                type="email" 
+                                name="email"
+                                value={contactFormInfo.email}
+                                onChange={handleContactChange} />
                                 <label style={{marginTop:'15px'}} className='form-label' htmlFor="subject">Subject</label>
-                                <input style={{border:'1px solid #454545'}} className='form-control' type="text" name="subject" />
+                                <input 
+                                style={{border:'1px solid #454545'}} 
+                                className='form-control' 
+                                type="text" 
+                                name="subject"
+                                value={contactFormInfo.subject}
+                                onChange={handleContactChange} />
                                 <label style={{marginTop:'15px'}} className='form-label' htmlFor="message">Message</label>
-                                <textarea style={{border:'1px solid #454545'}} className='form-control' type="text" name="message"></textarea>
+                                <textarea 
+                                style={{border:'1px solid #454545'}} 
+                                className='form-control' 
+                                type="text" 
+                                name="message"
+                                value={contactFormInfo.message}
+                                onChange={handleContactChange}></textarea>
+                                {alert.success ? <p><strong style={{color:'green'}}>{alert.message}</strong></p> : <p><strong style={{color:'red'}}>{alert.error}</strong></p>}
                             </form>
                         </Modal.Body>
                         <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
                             Close
                         </Button>
-                        <Button variant="primary" onClick={handleClose}>
+                        <Button variant="primary" onClick={handleSubmitContact}>
                             Send
                         </Button>
                         </Modal.Footer>
