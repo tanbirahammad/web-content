@@ -156,8 +156,9 @@ footer .logo img {
 }
 
 .hr-bar {
-    text-align: center;
+    /* text-align: center;  */
     width: 120px;
+    animation: circle 5s infinite;
 }
 
 .hr-bar hr {
@@ -169,6 +170,7 @@ footer .logo img {
 
 .hr-bar i {
     color: white;
+    
 }
 
 .address-bar {
@@ -274,3 +276,11 @@ footer input::placeholder {
         margin-top: 15px;
     }
 }
+
+@keyframes circle {
+    0%   {text-align: left;}
+    25%  {text-align: center;}
+    50%  {text-align: end;}
+    75%  {text-align: center;}
+    100% {text-align:left;}
+  }
