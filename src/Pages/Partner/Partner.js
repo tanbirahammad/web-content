@@ -6,6 +6,7 @@ const Partner = () => {
     const [term1, setTerm1] = useState(false);
     const [term2, setTerm2] = useState(false);
     const [term3, setTerm3] = useState(false);
+
     const [partnerInfo, setPartnerInfo] = useState({
         name: '',
         email: '',

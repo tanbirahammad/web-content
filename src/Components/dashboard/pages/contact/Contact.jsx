@@ -12,16 +12,15 @@ const ContactForm = () => {
     const db = getDatabase(app);
     useEffect(()=> {
         onValue(ref(db, 'contactForm/'), snapshot => {
-            const preData = snapshot.val();
-            setFindkey(preData);
+            // const preData = snapshot.val();
+            // setFindkey(preData);
             const data = Object.values(snapshot.val());
-            setContactInfo(data)
+            setContactInfo(data);
         })
     }, []);
 
     const handleDelete = (list) => {
-        const map = findkey.map(li => {return Object});
-        console.log(map);
+        remove(ref(db, 'gf'));
     }
 
     return (

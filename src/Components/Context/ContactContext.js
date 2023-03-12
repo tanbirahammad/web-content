@@ -30,7 +30,7 @@ const ContactContextProvider = ({children}) => {
         e.preventDefault();
         const {firstName, lastName, email, subject, message} = contactFormInfo;
         if (firstName && lastName && email && subject && message) {
-            const res = fetch('https://artistic-communication-default-rtdb.asia-southeast1.firebasedatabase.app/user.json', {
+            const res = fetch('https://artistic-communication-default-rtdb.asia-southeast1.firebasedatabase.app/contactForm.json', {
                 method: "POST",
                 body: JSON.stringify({
                     

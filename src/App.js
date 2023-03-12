@@ -20,6 +20,7 @@ import PortfolioDetails from './Pages/Portfolio/PortfolioDetails';
 import SocialIconBar from './Components/SocialIconBar/SocialIconBar';
 import HomeDash from './Components/dashboard/home/Home';
 import Login from './Components/dashboard/pages/Login/Login';
+import PartnerDetails from './Components/dashboard/pages/partner/PartnerDetails';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/admin' element={<HomeDash/>} /> 
+        <Route path='/admin/partner/ditails' element={<PartnerDetails/>} /> 
         <Route path='/login' element={<Login/>} /> 
         <Route path='/about' element={<About/>} />
         <Route path='/services' element={<Services/>} />
