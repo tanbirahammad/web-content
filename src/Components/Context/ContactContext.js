@@ -1,8 +1,13 @@
 const { createContext, useState } = require("react");
+const { getDatabase, ref, set } = require('firebase/database');
+const { app } = require('../../Firebase.config');
 
 const ContactContext = createContext();
 
 const ContactContextProvider = ({children}) => {
+
+    // const db = getDatabase();
+    const uuid = crypto.randomUUID();
 
     const [alert, setAlert] = useState({})
     const [contactFormInfo, setContactFormInfo] = useState({
@@ -25,19 +30,22 @@ const ContactContextProvider = ({children}) => {
         e.preventDefault();
         const {firstName, lastName, email, subject, message} = contactFormInfo;
         if (firstName && lastName && email && subject && message) {
-            const res = fetch('https://artistic-communication-default-rtdb.asia-southeast1.firebasedatabase.app/contactForm.json', {
+            const res = fetch('https://artistic-communication-default-rtdb.asia-southeast1.firebasedatabase.app/user.json', {
                 method: "POST",
                 body: JSON.stringify({
-                    firstName, 
-                    lastName, 
-                    email, 
-                    subject, 
-                    message
+                    
+                        firstName, 
+                        lastName, 
+                        email, 
+                        subject, 
+                        message
+                    
                 }),
                 headers: {
                 "Content-type": "application/json"
                 }
             });
+                    
             if (res) {
                 setContactFormInfo({
                     firstName: '',

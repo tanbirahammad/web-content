@@ -1,39 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import contactForm from './contact.css';
-import { getDatabase, ref, child, get } from "firebase/database";
+import { getDatabase, ref, onValue, remove} from "firebase/database";
 import app from '../../../../Firebase.config';
 
 const ContactForm = () => {
 
-    const [formData, setFormData] = useState([]);
-    let dbRef = ref(getDatabase(app));
 
-    useEffect(() => {
-        let ref = getDatabase(app).ref("/buyers");
-      ref.on("value", snapshot => {
-      const data = snapshot.val()
-      console.log(data)
-      })
-      }, []);
+    const [contactInfo, setContactInfo] = useState([]);
+    const [findkey, setFindkey] = useState([]);
+
+    const db = getDatabase(app);
+    useEffect(()=> {
+        onValue(ref(db, 'contactForm/'), snapshot => {
+            const preData = snapshot.val();
+            setFindkey(preData);
+            const data = Object.values(snapshot.val());
+            setContactInfo(data)
+        })
+    }, []);
+
+    const handleDelete = (list) => {
+        const map = findkey.map(li => {return Object});
+        console.log(map);
+    }
 
     return (
         <div className='row' id='contact-form'>
             <h5>All Mail List</h5>
-            <button >data</button>
-            {/* {
-                formData.map(data => <div>{data.name}</div>)
-            } */}
-            <div className="mail-conainer">
-                <div className="mail-list shadow-sm">
-                    <p>Name</p>
-                    <p>Email</p>
-                    <p>Subject</p>
-                    <p>Message</p>
-                    <div>
-                        <button className='btn btn-danger'>delete</button>
+            <div className='mail-conainer'>
+                {
+                    contactInfo.map(list =>
+                    <div 
+                    key={list.uuid}
+                    className="mail-list">
+                        <div>
+                            <p>Name: {list.firstName +' ' + list.lastName}</p>
+                            <p>Email: {list.email}</p>
+                            <p>Subject: {list.subject}</p>
+                            <p>Message: {list.message}</p>
+                        </div>
+                        <div>
+                            <button onClick={()=>handleDelete(list)} className='btn btn-danger'>delete</button>
+                        </div>
                     </div>
-                </div>
+                    )
+                }
             </div>
+            
         </div>
     );
 };
